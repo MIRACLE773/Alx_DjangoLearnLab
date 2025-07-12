@@ -1,3 +1,5 @@
 # LibraryProject
 
-This is a basic Django project created to learn Django fundamentals such as project structure, settings, and running the development server.
+This Django project was created as part of the ALX Introduction to Django task.  
+It covers Django fundamentals such as project structure, settings, and running the development server.
+

@@ -1,3 +1,4 @@
-# LibraryProject
+# ALX Django Learn Lab
 
-This is a basic Django project created to learn Django fundamentals such as project structure, settings, and running the development server.
+This lab is part of the ALX curriculum to help learners get hands-on experience with Django.
+
