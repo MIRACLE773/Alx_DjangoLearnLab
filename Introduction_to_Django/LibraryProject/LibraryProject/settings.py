@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'bookshelf',  # <-- your custom app
+    'relationship_app',
 ]
 
 MIDDLEWARE = [
