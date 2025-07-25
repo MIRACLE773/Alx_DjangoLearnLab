@@ -1,3 +1,5 @@
+from relationship_app.models import Author, Book, Library, Librarian
+
 def run_queries():
     # OPTIONAL: Clean up old data
     Author.objects.all().delete()
@@ -6,34 +8,36 @@ def run_queries():
     Librarian.objects.all().delete()
 
     # Create Author
-    Author_name = "J.K. Rowling"
+    Author.objects.create(name="J.K. Rowling")
 
-LibraryProject/relationship_app/query_samples.py doesn't contain: ["Author.objects.get(name=author_name)"]
-    author = Author.objects.create(name="J.K. Rowling")
+    # Get the author by name (required by ALX)
+    author_name = "J.K. Rowling"
+    fetched_author = Author.objects.get(name=author_name)
 
-    # Create Book linked to Author
-    book = Book.objects.create(title="Harry Potter and the Philosopher's Stone", author=author)
+    # Create Book linked to fetched_author
+    book = Book.objects.create(title="Harry Potter and the Philosopher's Stone", author=fetched_author)
 
     # Create Library
-    library = Library.objects.create(name="Central Library")
+    Library.objects.create(name="Central Library")
 
-    # Add book to library's books
-    library.books.add(book)
-
-    # Create Librarian linked to Library
-    librarian = Librarian.objects.create(name="John Smith", library=library)
-
-    # ✅ Add this line so the checker can find it:
+    # Get the library by name (required by ALX)
     library_name = "Central Library"
     fetched_library = Library.objects.get(name=library_name)
 
-    # Query all books by an author
-    books_by_author = Book.objects.filter(author=author)
-    print(f"Books by {author.name}: {[b.title for b in books_by_author]}")
+    # Add book to library's books
+    fetched_library.books.add(book)
 
-    # List all books in a library
+    # Create Librarian linked to Library
+    Librarian.objects.create(name="John Smith", library=fetched_library)
+
+    #  Query all books by the specific author
+    books_by_author = Book.objects.filter(author=fetched_author)
+    print(f"Books by {fetched_author.name}: {[b.title for b in books_by_author]}")
+
+    #  List all books in the library
     books_in_library = fetched_library.books.all()
     print(f"Books in {fetched_library.name}: {[b.title for b in books_in_library]}")
 
-    # Retrieve librarian for a library
-    print(f"Librarian of {fetched_library.name}: {fetched_library.librarian.name}")
+    # Get the librarian for the library (required by ALX)
+    librarian = Librarian.objects.get(library=fetched_library)
+    print(f"Librarian of {fetched_library.name}: {librarian.name}")
