@@ -6,6 +6,9 @@ def run_queries():
     Librarian.objects.all().delete()
 
     # Create Author
+    Author_name = "J.K. Rowling"
+
+LibraryProject/relationship_app/query_samples.py doesn't contain: ["Author.objects.get(name=author_name)"]
     author = Author.objects.create(name="J.K. Rowling")
 
     # Create Book linked to Author
