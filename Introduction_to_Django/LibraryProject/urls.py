@@ -20,25 +20,3 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
-<<<<<<< HEAD
-
-from django.urls import path, include
-
-urlpatterns = [
-    path('', include('relationship_app.urls')),
-    # other paths
-]
-
-
-# project_name/urls.py
-from django.contrib import admin
-from django.urls import path, include
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('relationship_app.urls')),  # Make sure this line is present
-]
-
-
-=======
->>>>>>> 7ba15b3729c4eea79783dd74b677ecca391ba1b7

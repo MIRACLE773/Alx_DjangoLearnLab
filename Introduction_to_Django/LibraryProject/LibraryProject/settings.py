@@ -20,7 +20,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 SECRET_KEY = 'django-insecure-em&f1wm@#)x)o*7l845f+r912i8ywrv-ik#$^2#!380bw21il^'
+=======
+SECRET_KEY = 'django-insecure-=31yyn2d=8atrpc)-wv9lshthom559&_fv_k89z7xh2!^xj(gy'
+>>>>>>> 7ba15b3729c4eea79783dd74b677ecca391ba1b7
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,7 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     'bookshelf'
+=======
+    
+    'relationship_app',
+>>>>>>> 7ba15b3729c4eea79783dd74b677ecca391ba1b7
 ]
 
 MIDDLEWARE = [
@@ -117,6 +126,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7ba15b3729c4eea79783dd74b677ecca391ba1b7
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 

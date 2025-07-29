@@ -20,11 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-<<<<<<< HEAD
-SECRET_KEY = 'django-insecure-8ck=-6u=uqcl8i5gjl#u)9(+!lz+&#jrf=@&=zvdv4y#_4@h6_'
-=======
-SECRET_KEY = 'django-insecure-=31yyn2d=8atrpc)-wv9lshthom559&_fv_k89z7xh2!^xj(gy'
->>>>>>> 7ba15b3729c4eea79783dd74b677ecca391ba1b7
+SECRET_KEY = 'django-insecure-7ahu2&&v9gn+27@815(cj_f#pm6%=jzbc=#wz68*&!r))e_0ak'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,12 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
-    'relationship_app'
-=======
     
     'relationship_app',
->>>>>>> 7ba15b3729c4eea79783dd74b677ecca391ba1b7
 ]
 
 MIDDLEWARE = [
@@ -64,11 +56,7 @@ ROOT_URLCONF = 'LibraryProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-<<<<<<< HEAD
-        'DIRS': [BASE_DIR / 'templates'],
-=======
         'DIRS': [],
->>>>>>> 7ba15b3729c4eea79783dd74b677ecca391ba1b7
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,25 +116,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-<<<<<<< HEAD
-STATIC_URL = '/static/'
-=======
 STATIC_URL = 'static/'
-
->>>>>>> 7ba15b3729c4eea79783dd74b677ecca391ba1b7
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-<<<<<<< HEAD
-
-
-
-LOGIN_REDIRECT_URL = '/'        # redirect to homepage after login
-LOGOUT_REDIRECT_URL = '/login/'  # redirect to login after logout
-
-
-
-=======
->>>>>>> 7ba15b3729c4eea79783dd74b677ecca391ba1b7

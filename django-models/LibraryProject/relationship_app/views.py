@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
+<<<<<<< HEAD
 
 from django.shortcuts import render
 from django.views.generic.detail import DetailView
@@ -110,3 +111,5 @@ def delete_book(request, pk):
         book.delete()
         return redirect('book_list')
     return render(request, 'relationship_app/book_confirm_delete.html', {'book': book})
+=======
+>>>>>>> 7ba15b3729c4eea79783dd74b677ecca391ba1b7
