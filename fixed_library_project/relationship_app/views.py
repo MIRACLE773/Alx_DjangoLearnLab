@@ -1,17 +1,49 @@
-# relationship_app/views.py
-
-from django.shortcuts import render
-from .models import Book, Library
+from django.shortcuts import render, redirect
 from django.views.generic import DetailView
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from .models import Book, Library
 
+# Home Page
 def home_view(request):
-    return render(request, 'home.html')
+    return render(request, 'relationship_app/home.html')
 
+# List all books
 def list_books(request):
     books = Book.objects.all()
-    return render(request, 'list_books.html', {'books': books})
+    return render(request, 'relationship_app/list_books.html', {'books': books})
 
+# Library detail
 class LibraryDetailView(DetailView):
     model = Library
-    template_name = 'library_detail.html'
+    template_name = 'relationship_app/library_detail.html'
     context_object_name = 'library'
+
+# User login
+def login_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'relationship_app/login.html', {'form': form})
+
+# User logout
+def logout_view(request):
+    logout(request)
+    return render(request, 'relationship_app/logout.html')
+
+# User registration
+def register_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'relationship_app/register.html', {'form': form})
