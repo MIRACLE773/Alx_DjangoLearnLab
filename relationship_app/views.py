@@ -12,7 +12,7 @@ def list_books(request):
     output = ', '.join([book.title for book in books])
     return HttpResponse(f"Books: {output}")
 
-# Role check functions
+
 def is_admin(user):
     return hasattr(user, 'userprofile') and user.userprofile.role == 'Admin'
 
