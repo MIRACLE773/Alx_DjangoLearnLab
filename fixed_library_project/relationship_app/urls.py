@@ -1,3 +1,4 @@
+# relationship_app/urls.py
 from django.urls import path
 from .views import (
     home_view,
@@ -6,6 +7,9 @@ from .views import (
     login_view,
     logout_view,
     register_view,
+    admin_view,
+    librarian_view,
+    member_view,
 )
 
 urlpatterns = [
@@ -15,4 +19,10 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('register/', register_view, name='register'),
+
+    # Role-based access URLs
+    path('admin-view/', admin_view, name='admin_view'),
+    path('librarian-view/', librarian_view, name='librarian_view'),
+    path('member-view/', member_view, name='member_view'),
 ]
+
