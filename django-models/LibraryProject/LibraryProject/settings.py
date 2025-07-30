@@ -16,18 +16,12 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
-<<<<<<< HEAD
-SECRET_KEY = 'django-insecure-1z2u^2l#%705ev4-lda$k(8arlnbnyq(x0$*=2tuabj))(0$yg'
-=======
-SECRET_KEY = 'django-insecure-3gpk4f+!)u3x_vgyt@8@^1w94expq5g0#ce(47b5&4yze1c2b7'
->>>>>>> 3d6844a3686b4fb9f53fc556c1492935bba6b3f2
+SECRET_KEY = 'django-insecure-8ck=-6u=uqcl8i5gjl#u)9(+!lz+&#jrf=@&=zvdv4y#_4@h6 '
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
 
 ALLOWED_HOSTS = []
 
@@ -59,7 +53,7 @@ ROOT_URLCONF = 'LibraryProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],  # or [] if no global templatesfolder
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,6 +64,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'LibraryProject.wsgi.application'
 
@@ -119,9 +114,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/'         # redirect to homepage after login
+LOGOUT_REDIRECT_URL = '/login/'  # redirect to login after logout
