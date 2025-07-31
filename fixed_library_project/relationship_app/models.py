@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-# ========== Your Existing Models ==========
+ 
 class Author(models.Model):
     name = models.CharField(max_length=100)
     
@@ -25,7 +25,7 @@ class Library(models.Model):
     def __str__(self):
         return self.name
 
-# ========== New UserProfile Model ==========
+# 
 class UserProfile(models.Model):
     ROLE_CHOICES = [
         ('Admin', 'Admin'),
@@ -39,7 +39,7 @@ class UserProfile(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.role}"
 
-# ========== Signal to Auto Create UserProfile ==========
+# 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
