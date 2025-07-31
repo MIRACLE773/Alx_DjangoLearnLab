@@ -1,21 +1,24 @@
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.http import HttpResponse
 
+def check_role(role):
+    def inner(user):
+        return hasattr(user, 'userprofile') and user.userprofile.role == role
+    return user_passes_test(inner)
 
 @login_required
-@user_passes_test(lambda u: u.userprofile.role == 'Admin')
+@check_role('Admin')
 def admin_view(request):
     return HttpResponse("Welcome Admin!")
 
-
 @login_required
-@user_passes_test(lambda u: u.userprofile.role == 'Librarian')
+@check_role('Librarian')
 def librarian_view(request):
     return HttpResponse("Welcome Librarian!")
 
-
 @login_required
-@user_passes_test(lambda u: u.userprofile.role == 'Member')
+@check_role('Member')
 def member_view(request):
     return HttpResponse("Welcome Member!")
+
 

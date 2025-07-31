@@ -14,15 +14,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# LibraryProject/urls.py
 from django.contrib import admin
 from django.urls import path
 from relationship_app import views
 
 urlpatterns = [
-    path('djadmin/', admin.site.urls),  # change the Django admin route
-    path('admin/', views.admin_view, name='admin_view'),  # ALX wants this
+    path('admin/', admin.site.urls),
+    path('admin-role/', views.admin_view, name='admin_view'),
     path('librarian/', views.librarian_view, name='librarian_view'),
     path('member/', views.member_view, name='member_view'),
 ]
+
 
 
