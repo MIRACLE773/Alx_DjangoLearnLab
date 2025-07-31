@@ -13,16 +13,12 @@ class UserProfile(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.role}"
 
-
-
-
 class Library(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=200)
 
     def __str__(self):
         return self.name
-
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
