@@ -2,9 +2,9 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.http import HttpResponse
 
 def check_role(role):
-    def inner(user):
+    def inner_check(user):
         return hasattr(user, 'userprofile') and user.userprofile.role == role
-    return user_passes_test(inner)
+    return user_passes_test(inner_check)
 
 @login_required
 @check_role('Admin')
@@ -20,5 +20,3 @@ def librarian_view(request):
 @check_role('Member')
 def member_view(request):
     return HttpResponse("Welcome Member!")
-
-
