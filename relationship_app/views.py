@@ -1,18 +1,24 @@
-from django.shortcuts import render
-from django.contrib.auth.decorators import user_passes_test
-from .models import UserProfile
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.http import HttpResponse
 
-def check_role(user, role):
-    return hasattr(user, 'userprofile') and user.userprofile.role == role
+# Decorators
+def check_role(role):
+    def inner_check(user):
+        return hasattr(user, 'userprofile') and user.userprofile.role == role
+    return user_passes_test(inner_check)
 
-@user_passes_test(lambda u: check_role(u, 'Admin'))
+# Views
+@login_required
+@check_role('Admin')
 def admin_view(request):
-    return render(request, 'admin_page.html')
+    return HttpResponse("Welcome Admin!")
 
-@user_passes_test(lambda u: check_role(u, 'Librarian'))
+@login_required
+@check_role('Librarian')
 def librarian_view(request):
-    return render(request, 'librarian_page.html')
+    return HttpResponse("Welcome Librarian!")
 
-@user_passes_test(lambda u: check_role(u, 'Member'))
+@login_required
+@check_role('Member')
 def member_view(request):
-    return render(request, 'member_page.html')
+    return HttpResponse("Welcome Member!")

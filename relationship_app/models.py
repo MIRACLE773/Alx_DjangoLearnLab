@@ -14,6 +14,7 @@ class UserProfile(models.Model):
         return f"{self.user.username} - {self.role}"
 
 
+
 class Library(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=200)
