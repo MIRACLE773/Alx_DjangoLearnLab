@@ -1,6 +1,5 @@
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.http import HttpResponse
-from .models import UserProfile
 
 
 @login_required
@@ -19,3 +18,4 @@ def librarian_view(request):
 @user_passes_test(lambda u: u.userprofile.role == 'Member')
 def member_view(request):
     return HttpResponse("Welcome Member!")
+
