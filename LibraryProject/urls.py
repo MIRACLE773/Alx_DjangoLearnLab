@@ -21,7 +21,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('relationship_app.urls')),
 ]
-<<<<<<< HEAD
 
-=======
->>>>>>> 3d6844a3686b4fb9f53fc556c1492935bba6b3f2
