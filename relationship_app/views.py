@@ -1,24 +1,18 @@
+from django.shortcuts import render
 from django.contrib.auth.decorators import user_passes_test
-from django.http import HttpResponse
+from .models import UserProfile
 
-def is_admin(user):
-    return hasattr(user, 'userprofile') and user.userprofile.role == 'Admin'
+def check_role(user, role):
+    return hasattr(user, 'userprofile') and user.userprofile.role == role
 
-def is_librarian(user):
-    return hasattr(user, 'userprofile') and user.userprofile.role == 'Librarian'
-
-def is_member(user):
-    return hasattr(user, 'userprofile') and user.userprofile.role == 'Member'
-
-@user_passes_test(is_admin)
+@user_passes_test(lambda u: check_role(u, 'Admin'))
 def admin_view(request):
-    return HttpResponse("Hello Admin! Welcome to your dashboard.")
+    return render(request, 'admin_page.html')
 
-@user_passes_test(is_librarian)
+@user_passes_test(lambda u: check_role(u, 'Librarian'))
 def librarian_view(request):
-    return HttpResponse("Hello Librarian! Welcome to your dashboard.")
+    return render(request, 'librarian_page.html')
 
-@user_passes_test(is_member)
+@user_passes_test(lambda u: check_role(u, 'Member'))
 def member_view(request):
-    return HttpResponse("Hello Member! Welcome to your dashboard.")
-
+    return render(request, 'member_page.html')
