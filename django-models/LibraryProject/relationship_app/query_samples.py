@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 import os
 import sys
 import django
@@ -45,7 +43,7 @@ try:
     print(f"\nLibrarian of {library_name}: {librarian.name}")
 except (Library.DoesNotExist, Librarian.DoesNotExist):
     print(f"No librarian found for library '{library_name}'.")
-=======
+
 from relationship_app.models import Author, Book, Library, Librarian
 
 def run_queries():
@@ -90,4 +88,3 @@ def run_queries():
     #  Get the librarian for the library (required by ALX)
     librarian = Librarian.objects.get(library=fetched_library)
     print(f"Librarian of {fetched_library.name}: {librarian.name}")
->>>>>>> 7ba15b3729c4eea79783dd74b677ecca391ba1b7
