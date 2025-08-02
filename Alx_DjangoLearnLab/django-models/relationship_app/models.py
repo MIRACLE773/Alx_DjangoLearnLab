@@ -11,5 +11,7 @@ class Book(models.Model):
             ('candeletebook', 'Can delete book'),
         )
 
+    def __str__(self):
+        return self.title
 
 
