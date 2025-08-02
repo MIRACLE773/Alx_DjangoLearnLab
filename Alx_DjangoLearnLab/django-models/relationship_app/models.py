@@ -4,14 +4,13 @@ class Book(models.Model):
     title = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         permissions = [
             ("canaddbook", "Can add book"),
             ("canchangebook", "Can change book"),
             ("candeletebook", "Can delete book"),
         ]
-
-    def __str__(self):
-        return self.title
-
 
