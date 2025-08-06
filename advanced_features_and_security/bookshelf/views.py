@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from .models import CustomUser
+from django.contrib.auth import get_user_model
 
 def user_list(request):
-    users = CustomUser.objects.all()
+    User = get_user_model()
+    users = User.objects.all()
     return render(request, 'users/list.html', {'users': users})

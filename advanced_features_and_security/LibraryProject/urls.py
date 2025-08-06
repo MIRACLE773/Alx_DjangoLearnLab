@@ -19,6 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('bookshelf.urls')),  # 
+    path('', include('bookshelf.urls')),  # make sure this points to your app urls
 ]
 
