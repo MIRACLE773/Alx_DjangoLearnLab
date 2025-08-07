@@ -1,9 +1,10 @@
 from django.urls import path
-from . import views  # you already have this
+from . import views
 
 urlpatterns = [
-    path('', views.home_view, name='home'),  
-    path('admin-role/', views.admin_view, name='admin_view'),
-    path('librarian-role/', views.librarian_view, name='librarian_view'),
-    path('member-role/', views.member_view, name='member_view'),
+    path('admin/', views.admin_view, name='admin_view'),
+    path('librarian/', views.librarian_view, name='librarian_view'),
+    path('member/', views.member_view, name='member_view'),
+    path('register/', views.register_view, name='register'),  # if you added this view
 ]
+
