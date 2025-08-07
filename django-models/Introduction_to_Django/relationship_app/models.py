@@ -14,4 +14,3 @@ class UserProfile(models.Model):
         return f"{self.user.username} - {self.role}"
 
 
-
