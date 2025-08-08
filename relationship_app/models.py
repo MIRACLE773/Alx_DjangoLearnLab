@@ -21,9 +21,14 @@ class Library(models.Model):
         return self.name
 
 class Book(models.Model):
-    title = models.CharField(max_length=100)
-    author = models.CharField(max_length=100)
-    library = models.ForeignKey(Library, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
+    author = models.CharField(max_length=255)
+    published_date = models.DateField()
 
-    def __str__(self):
-        return self.title
+    class Meta:
+        permissions = [
+            ("canaddbook", "Can add book"),
+            ("canchangebook", "Can change book"),
+            ("candeletebook", "Can delete book"),
+        ]
+
