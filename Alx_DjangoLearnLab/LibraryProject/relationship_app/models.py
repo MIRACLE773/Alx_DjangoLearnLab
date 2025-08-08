@@ -13,7 +13,6 @@ class UserProfile(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.role}"
 
-
 class Book(models.Model):
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
